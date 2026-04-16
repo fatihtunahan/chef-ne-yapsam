@@ -16,16 +16,32 @@
     <div class="page-shell">
       <header class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Akilli Yemek Asistani</p>
-          <h1>Evde ne varsa yaz, sana yapabilecegin yemekleri cikarayim.</h1>
+          <p class="eyebrow">Malzemeye Gore Tarif Sitesi</p>
+          <h1>Evde ne varsa yaz, sana uygun yemekleri bulayim.</h1>
           <p class="hero-text">
-            Malzemelerini gir, benzer tarifleri yakalayan akilli sistem sana en
-            uygun yemekleri ve kisa yapilis fikirlerini onersin.
+            Site tamamen yerel calisir. Elindeki malzemeleri yaz, 50 yemeklik
+            arsivden sana en uygun tarifleri listeleyeyim.
           </p>
         </div>
 
         <div class="hero-card">
-          <p class="card-label">Ornek malzemeler</p>
+          <p class="card-label">Sitede Neler Var?</p>
+          <div class="stats-grid">
+            <div class="stat-box">
+              <strong id="recipeCount">50</strong>
+              <span>yemek</span>
+            </div>
+            <div class="stat-box">
+              <strong id="ingredientCount">100</strong>
+              <span>malzeme</span>
+            </div>
+            <div class="stat-box">
+              <strong>Free</strong>
+              <span>kullanim</span>
+            </div>
+          </div>
+
+          <p class="card-label">Ornek Malzemeler</p>
           <div class="sample-tags">
             <button class="sample-tag" data-fill="yumurta, domates, biber, peynir">
               yumurta, domates, biber
@@ -45,7 +61,7 @@
           <label for="ingredients" class="section-label">Malzemeler</label>
           <textarea
             id="ingredients"
-            placeholder="Ornek: patates, sogan, yumurta, kasar peyniri"
+            placeholder="Ornek: patates, sogan, yumurta, kasar"
           ></textarea>
 
           <div class="actions">
@@ -53,15 +69,11 @@
             <button id="clearBtn" class="ghost-btn">Temizle</button>
           </div>
 
-          <div id="modeNotice" class="mode-notice" data-tone="info">
-            Bu dosyayi tek basina actiginda demo modunda calisir. Vercel'e
-            koyup OpenAI anahtarini eklediginde gercek AI moduna gecer.
-          </div>
-
           <div class="hint-box">
             <p>En iyi sonuc icin 3-8 malzeme gir.</p>
             <p>
-              Bu surum hem demo hem de gercek AI mimarisine hazirdir.
+              Bu surum tamamen yerel calisir. API anahtari ya da yapay zeka
+              baglantisi gerekmez.
             </p>
           </div>
         </section>
@@ -69,7 +81,7 @@
         <section class="panel result-panel">
           <div class="result-header">
             <div>
-              <p class="section-label">AI Sef Cevabi</p>
+              <p class="section-label">Tarif Onerileri</p>
               <h2>Burada sana uygun yemekler cikacak.</h2>
             </div>
           </div>
@@ -81,6 +93,16 @@
           <div id="results" class="results" aria-live="polite"></div>
         </section>
       </main>
+
+      <section class="panel catalog-panel">
+        <p class="section-label">Desteklenen Malzemeler</p>
+        <h2 class="catalog-title">Sistemde 100 farkli malzeme tanimli.</h2>
+        <p class="catalog-text">
+          Asagidaki malzemelere tiklayarak kutuya ekleyebilir, tekrar tiklayarak
+          cikarabilirsin.
+        </p>
+        <div id="ingredientCatalog" class="ingredient-catalog"></div>
+      </section>
     </div>
 
     <script src="app.js"></script>

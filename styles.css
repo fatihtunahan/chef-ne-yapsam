@@ -90,6 +90,32 @@ h1 {
     linear-gradient(180deg, rgba(255, 248, 239, 0.95), rgba(248, 226, 198, 0.95));
 }
 
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.stat-box {
+  padding: 16px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(54, 34, 19, 0.08);
+}
+
+.stat-box strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.stat-box span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .sample-tags {
   display: flex;
   flex-wrap: wrap;
@@ -144,26 +170,6 @@ textarea:focus {
   display: flex;
   gap: 12px;
   margin-top: 16px;
-}
-
-.mode-notice {
-  margin-top: 16px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: rgba(255, 248, 239, 0.8);
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.mode-notice[data-tone="success"] {
-  background: rgba(220, 245, 227, 0.88);
-  color: #23583a;
-}
-
-.mode-notice[data-tone="warning"] {
-  background: rgba(255, 239, 219, 0.9);
-  color: #7d4b16;
 }
 
 .primary-btn,
@@ -283,7 +289,6 @@ textarea:focus {
   font-weight: 700;
 }
 
-.steps-title,
 .missing-title {
   margin: 18px 0 8px;
   font-size: 0.88rem;
@@ -291,15 +296,55 @@ textarea:focus {
   color: var(--text);
 }
 
-.steps-list {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--muted);
-  line-height: 1.7;
+.catalog-panel {
+  margin-top: 24px;
 }
 
-.steps-list li + li {
-  margin-top: 6px;
+.catalog-title {
+  margin: 0;
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+}
+
+.catalog-text {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.ingredient-catalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.ingredient-pill {
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 248, 239, 0.95);
+  border: 1px solid rgba(54, 34, 19, 0.08);
+  color: var(--text);
+  font-size: 0.9rem;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.ingredient-pill:hover {
+  transform: translateY(-1px);
+  background: #fffdf9;
+}
+
+.ingredient-pill.is-selected {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-color: transparent;
+  color: white;
 }
 
 @media (max-width: 900px) {
@@ -317,6 +362,10 @@ textarea:focus {
   .page-shell {
     width: min(100% - 20px, 1120px);
     padding-top: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 
   .panel,
