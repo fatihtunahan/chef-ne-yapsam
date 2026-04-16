@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChefNeYapsam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Akilli Yemek Asistani</p>
+          <h1>Evde ne varsa yaz, sana yapabilecegin yemekleri cikarayim.</h1>
+          <p class="hero-text">
+            Malzemelerini gir, benzer tarifleri yakalayan akilli sistem sana en
+            uygun yemekleri ve kisa yapilis fikirlerini onersin.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <p class="card-label">Ornek malzemeler</p>
+          <div class="sample-tags">
+            <button class="sample-tag" data-fill="yumurta, domates, biber, peynir">
+              yumurta, domates, biber
+            </button>
+            <button class="sample-tag" data-fill="makarna, krema, mantar, tavuk">
+              makarna, krema, mantar
+            </button>
+            <button class="sample-tag" data-fill="pirinc, tavuk, sogan, yogurt">
+              pirinc, tavuk, sogan
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <label for="ingredients" class="section-label">Malzemeler</label>
+          <textarea
+            id="ingredients"
+            placeholder="Ornek: patates, sogan, yumurta, kasar peyniri"
+          ></textarea>
+
+          <div class="actions">
+            <button id="suggestBtn" class="primary-btn">Yemek Oner</button>
+            <button id="clearBtn" class="ghost-btn">Temizle</button>
+          </div>
+
+          <div id="modeNotice" class="mode-notice" data-tone="info">
+            Bu dosyayi tek basina actiginda demo modunda calisir. Vercel'e
+            koyup OpenAI anahtarini eklediginde gercek AI moduna gecer.
+          </div>
+
+          <div class="hint-box">
+            <p>En iyi sonuc icin 3-8 malzeme gir.</p>
+            <p>
+              Bu surum hem demo hem de gercek AI mimarisine hazirdir.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel result-panel">
+          <div class="result-header">
+            <div>
+              <p class="section-label">AI Sef Cevabi</p>
+              <h2>Burada sana uygun yemekler cikacak.</h2>
+            </div>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <p>Malzemelerini gir ve butona bas.</p>
+          </div>
+
+          <div id="results" class="results" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
